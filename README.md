@@ -23,3 +23,6 @@ Les détails de l'utilisation de l'application sont disponibles dans le fichier 
 ~~ Windows
 
 Ouvrez le fichier Output pour acceder a l'installateur
+Selectionner la destination ou vous souhaitez mettre l'application
+
+une fois l'installation terminer, le repertoire sers a garder vos projets, le start.bat pour demarrer le serveur et le config.bat pour configurer vos ports et le repertoire ou fichier par defaut
