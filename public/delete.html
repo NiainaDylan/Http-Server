@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test DELETE </title>
+</head>
+<body>
+
+<h2>Supprimer un fichier</h2>
+
+<form id="deleteForm">
+    <label for="filename">Nom du fichier à supprimer :</label><br>
+    <input type="text" id="filename" name="filename" required><br><br>
+
+    <button type="submit">Supprimer</button>
+</form>
+
+<script>
+    document.getElementById("deleteForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const filename = document.getElementById("filename").value;
+
+        fetch(`test/${filename}`, {
+            method: 'DELETE',
+        })
+    });
+</script>
+
+</body>
+</html>

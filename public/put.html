@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test PUT Formulaire</title>
+</head>
+<body>
+
+<h2>Formulaire PUT pour Modifier un fichier</h2>
+
+<form id="putForm">
+    <label for="filename">Nom du fichier :</label><br>
+    <input type="text" id="filename" name="filename" required><br><br>
+
+    <label for="content">Contenu :</label><br>
+    <textarea id="content" name="content" required></textarea><br><br>
+
+    <button type="submit">Envoyer</button>
+</form>
+
+<script>
+    document.getElementById("putForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const filename = document.getElementById("filename").value;
+        const content = document.getElementById("content").value;
+
+        fetch(`test/${filename}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ content: content })
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert("Données envoyées avec succès !");
+        })
+        .catch(error => {
+            alert("Erreur lors de l'envoi des données.");
+        });
+    });
+</script>
+
+</body>
+</html>
